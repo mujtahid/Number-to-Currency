@@ -1,15 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using TaskB.Libs;
 
 namespace Task_B
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
+            var convertCurrency = new ConvertCurrency();
+
+            Console.WriteLine(convertCurrency.ConvertCurrencyToEnglish("$1.45"));
+
+            Console.ReadLine();
         }
     }
 }
