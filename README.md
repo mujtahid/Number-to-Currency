@@ -4,8 +4,8 @@ The app will convert a provided dollar value into an written English representat
 
 Example:
 
-* Input $127.45
-* Output One hundred and twenty-seven dollars and forty-five cent
+* Input : $127.45
+* Output : One hundred and twenty-seven dollars and forty-five cent
 
 ### What is this repository for? ###
 
