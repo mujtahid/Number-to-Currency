@@ -9,7 +9,7 @@ namespace Task_B
         {
             var convertCurrency = new ConvertCurrency();
 
-            Console.WriteLine(convertCurrency.ConvertCurrencyToEnglish("$1.45"));
+            Console.WriteLine(convertCurrency.ConvertCurrencyToEnglish("$125.45"));
 
             Console.ReadLine();
         }

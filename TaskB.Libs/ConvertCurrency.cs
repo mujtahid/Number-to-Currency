@@ -10,19 +10,13 @@ namespace TaskB.Libs
         {
             if (string.IsNullOrWhiteSpace(currencyNumber)) return string.Empty;
 
-            var regEx =
-                new Regex(@"^(\$?(0|[1-9]\d{0,2}(\d{3})?)(\.\d\d?)?|\(\$?(0|[1-9]\d{0,2}(\d{3})?)(\.\d\d?)?\))$");
+            var regEx = new Regex(@"^(\$?([1-9]\d*?)(\.\d\d?)?)$");
 
             var isValidCurrencyNumber = regEx.Match(currencyNumber);
 
             if (!isValidCurrencyNumber.Success)
             {
                 throw new ApplicationException(string.Format("{0} not valid input format. Example format $127.45", currencyNumber));
-            }
-
-            if (currencyNumber.StartsWith("$0") || currencyNumber.StartsWith("0"))
-            {
-                throw new ApplicationException(string.Format("{0} not valid input, number can't start with 0. Example format $127.45", currencyNumber));
             }
 
             var places = new Dictionary<int, string>
