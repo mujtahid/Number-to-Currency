@@ -10,7 +10,7 @@ namespace TaskB.Libs
         {
             if (string.IsNullOrWhiteSpace(currencyNumber)) return string.Empty;
 
-            var regEx = new Regex(@"^(\$?([1-9]\d*?)(\.\d\d?)?)$");
+            var regEx = new Regex(@"^(\$?(0|[1-9]\d*?)(\.\d\d?)?)$");
 
             var isValidCurrencyNumber = regEx.Match(currencyNumber);
 
@@ -61,12 +61,22 @@ namespace TaskB.Libs
                 index++;
             } while (!currencyNumber.Equals(string.Empty));
 
-            dollars = dollars.Equals("one") ? "one dollar" : string.Format("{0} dollars", dollars.Trim());
-
-            if (!string.IsNullOrWhiteSpace(cents))
+            if (!string.IsNullOrWhiteSpace(dollars))
             {
-                cents = cents.Equals("one") ? " and one cent" : string.Format(" and {0} cents", cents.Trim());
+                dollars = dollars.Equals("one") ? "one dollar" : string.Format("{0} dollars", dollars.Trim());
+                if (!string.IsNullOrWhiteSpace(cents))
+                {
+                    cents = cents.Equals("one") ? " and one cent" : string.Format(" and {0} cents", cents.Trim());
+                }
             }
+            else
+            {
+                if (!string.IsNullOrWhiteSpace(cents))
+                {
+                    cents = cents.Equals("one") ? "one cent" : string.Format("{0} cents", cents.Trim());
+                }
+            }
+            
                 
             return string.Format("{0}{1}", dollars, cents).ToUpperFirstChar();
         }

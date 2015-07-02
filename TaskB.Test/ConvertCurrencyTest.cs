@@ -19,21 +19,21 @@ namespace TaskB.Test
         }
 
         [TestMethod]
+        public void CurrencyTestCentsSuccess()
+        {
+            var convertCurrency = new ConvertCurrency();
+
+            var result = convertCurrency.ConvertCurrencyToEnglish("$0.45");
+
+            result.Should().Be("Forty-five cents");
+        }
+
+        [TestMethod]
         public void InvalidInput_Throws()
         {
             var convertCurrency = new ConvertCurrency();
 
             Action act = () => convertCurrency.ConvertCurrencyToEnglish("AD45");
-
-            act.ShouldThrow<ApplicationException>();
-        }
-
-        [TestMethod]
-        public void InvalidInputStartWithZero_Throws()
-        {
-            var convertCurrency = new ConvertCurrency();
-
-            Action act = () => convertCurrency.ConvertCurrencyToEnglish("$0");
 
             act.ShouldThrow<ApplicationException>();
         }
