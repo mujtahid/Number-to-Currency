@@ -9,7 +9,7 @@ Example:
 
 ### What is this repository for? ###
 
-* Task B
+* Number to Currency
 * Version 1.0
 
 ### How do I get set up? ###
